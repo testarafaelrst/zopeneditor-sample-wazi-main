@@ -175,7 +175,7 @@ profiles:
             localCommand: >
               .zopeneditor/grub_client execute --zoweProfile ${defaultZoweProfile}
               --remoteWorkspace ${dbbWorkspace}/${application}
-              --command "DBB_HOME=${DBB_HOME} DBB_BUILD=${DBB_BUILD} DBB_JAVA_HOME=${DBB_JAVA_HOME} $DBB_HOME/bin/dbb build user --hlq ${dbbHlq} --errPrefix ${errPrefix} ${currentProgram}"
+              --command "export DBB_HOME=${DBB_HOME} DBB_BUILD=${DBB_BUILD} DBB_JAVA_HOME=${DBB_JAVA_HOME} JAVA_HOME=${DBB_JAVA_HOME} && \${DBB_HOME}/bin/dbb build user --hlq ${dbbHlq} --errPrefix ${errPrefix} ${currentProgram}"
               --verbose
         - results:
             logFilePatterns:
