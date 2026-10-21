@@ -21,9 +21,9 @@ application:
         - name: dependencySearchPath
           value: search:${WORKSPACE}/?path=${APP_DIR_NAME}/COPYBOOK/*.cpy
         - name: SIGYCOMP
-          value: IGY.V6R5M0.SIGYCOMP
+          value: COBOL.V6R2.SIGYCOMP
         - name: SCEELKED
-          value: CEE.SCEELKED
+          value: SYS1.CSSLIB
 
     - task: PLI
       sources:
