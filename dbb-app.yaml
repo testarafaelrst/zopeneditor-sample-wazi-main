@@ -24,6 +24,8 @@ application:
           value: COBOL.V6R2.SIGYCOMP
         - name: SCEELKED
           value: SYS1.CSSLIB
+        - name: compileParms
+          value: "LIB,OBJECT,NODECK,LIST,MAP"
 
     - task: PLI
       sources:
