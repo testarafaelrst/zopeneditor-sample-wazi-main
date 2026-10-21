@@ -14,10 +14,10 @@
     "dbbHlq": "RAFAELT.SAMPLE",
     "dbbWorkspace": "/u/rafaelt/projects",
     "dbbLogDir": "/u/rafaelt/projects/logs",
-    "DBB_HOME": "/usr/lpp/IBM/dbb",
-    "DBB_JAVA_HOME": "/usr/lpp/java/J8.0_64",
+    "DBB_HOME": "/shared/IBM/dbb",
+    "DBB_JAVA_HOME": "/usr/lpp/java/J21.0_64",
     "DBB_BUILD": "/u/rafaelt/dbb-zappbuild",
-    "application": "sam"
+    "application": "zopeneditor-sample-wazi-main"
   },
   "zopeneditor.userbuild.userSettings": {
     "dbbHlq": "RAFAELT.SAMPLE",
