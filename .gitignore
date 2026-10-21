@@ -1,0 +1,17 @@
+logs
+target
+output
+.project
+.zopeneditor
+.bobz
+bobz
+target/
+.classpath
+.settings/
+dependency-reduced-pom.xml
+.DS_Store
+*.tgz
+*.zip
+*.cee
+*.pci
+*.jar

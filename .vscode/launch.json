@@ -1,0 +1,44 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "zOpenDebug",
+      "request": "attach",
+      "name": "List parked IBM Z Open Debug sessions",
+      "connection": {
+        "type": "zowe",
+        "name": "zOpenDebug"
+      }
+    },
+    {
+      "type": "zOpenDebug",
+      "request": "launch",
+      "name": "Debug SAM1 application",
+      "connection": {
+        "type": "zowe",
+        "name": "zOpenDebug"
+      },
+      "profile": "zOpenDebug",
+      "applicationLaunch": {
+        "commandLine": "zowe jobs submit data-set \"IBMUSER.SAMPLE.JCL(DEBUG)\""
+      },
+      "terminateAndAbend": true,
+      "trace": true
+    },
+    {
+      "type": "zOpenDebug",
+      "request": "launch",
+      "name": "Code Coverage for SAM1 application",
+      "connection": {
+        "type": "zowe",
+        "name": "zOpenDebug"
+      },
+      "profile": "zOpenDebug",
+      "applicationLaunch": {
+        "commandLine": "zowe jobs submit data-set \"IBMUSER.SAMPLE.JCL(COVERAGE)\""
+      },
+      "terminateAndAbend": true,
+      "trace": true
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+/*******************************************************************************
+ * Licensed Materials - Property of IBM
+ * (C) Copyright IBM Corporation 2023, 2026. All Rights Reserved.
+ *
+ * Note to U.S. Government Users Restricted Rights:
+ * Use, duplication or disclosure restricted by GSA ADP Schedule
+ * Contract with IBM Corp.
+ *******************************************************************************/
+{
+  "editor.formatOnSave": true, // To demonstrate COBOL code formatting on save.
+  "ansible.validation.lint.enabled": false, // ansible-lint is not installed; set to true after installing it.
+  "zopeneditor.zapp.variables": {
+    "HLQ": "RAFAELT",
+    "dbbHlq": "RAFAELT.SAMPLE",
+    "dbbWorkspace": "/u/rafaelt/projects",
+    "dbbLogDir": "/u/rafaelt/projects/logs",
+    "DBB_HOME": "/usr/lpp/IBM/dbb",
+    "DBB_JAVA_HOME": "/usr/lpp/java/J8.0_64",
+    "DBB_BUILD": "/u/rafaelt/dbb-zappbuild",
+    "application": "sam"
+  },
+  "zopeneditor.userbuild.userSettings": {
+    "dbbHlq": "RAFAELT.SAMPLE",
+    "dbbWorkspace": "/u/rafaelt/projects",
+    "dbbLogDir": "/u/rafaelt/projects/logs"
+  },
+  // ZCodeScan YAML schema associations for editing rules files.
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/IBM/zopeneditor-about/refs/heads/main/zcodescan/zcodescan-rules-1.5.0.json": [
+      "*rules.yaml"
+    ],
+    "https://raw.githubusercontent.com/IBM/zopeneditor-about/refs/heads/main/zcodescan/zcodescan-rules-domains-1.5.0.json": [
+      "zcodescan/rules-domains.yaml"
+    ]
+  }
+}
