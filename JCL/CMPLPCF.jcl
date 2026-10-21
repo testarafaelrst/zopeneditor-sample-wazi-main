@@ -1,0 +1,76 @@
+//PCFBILD JOB ,NOTIFY=&SYSUID,
+// MSGCLASS=H,MSGLEVEL=(1,1),REGION=144M
+//*****************************************************************
+//* LICENSED MATERIALS - PROPERTY OF IBM
+//* "RESTRICTED MATERIALS OF IBM"
+//* (C) COPYRIGHT IBM CORPORATION 2026. ALL RIGHTS RESERVED
+//*
+//*  US GOVERNMENT USERS RESTRICTED RIGHTS - USE, DUPLICATION,
+//*  OR DISCLOSURE RESTRICTED BY GSA ADP SCHEDULE
+//*  CONTRACT WITH IBM CORPORATION
+//*
+//*****************************************************************
+//*
+//* COMPILE AND LINK PCFDEMO (PROGRAM-ID: PCF-EDGE-STYLES)
+//*
+//*****************************************************************
+//    SET HLQ='RAFAELT'                       *TSO USER ID
+//    SET CMPLLIB='COBOL.V6R2.SIGYCOMP'       *COMPILER LIBRARY
+//    SET LINKLIB='SYS1.CEE.SCEELKED'         *LINK LIBRARY
+//    SET SPACE1='SYSALLDA,SPACE=(CYL,(1,1))' *SPACE ALLOCATION
+//    SET SPACE2='SYSALLDA,SPACE=(CYL,(1,1))' *SPACE ALLOCATION
+//*
+//***************************
+//*                         *
+//*  COMPILE PCFDEMO        *
+//*                         *
+//***************************
+//CMPLPCF  EXEC PGM=IGYCRCTL,PARM='LIST,MAP'
+//STEPLIB  DD DISP=SHR,DSN=&CMPLLIB
+//SYSIN    DD DISP=SHR,DSN=&HLQ..SAMPLE.COBOL(PCFDEMO)
+//SYSLIB   DD DISP=SHR,DSN=&HLQ..SAMPLE.COPY
+//SYSLIN   DD DISP=OLD,DSN=&HLQ..SAMPLE.OBJ(PCFDEMO)
+//SYSPRINT DD SYSOUT=*
+//SYSMDECK DD UNIT=&SPACE1
+//SYSUT1   DD UNIT=&SPACE1
+//SYSUT2   DD UNIT=&SPACE1
+//SYSUT3   DD UNIT=&SPACE1
+//SYSUT4   DD UNIT=&SPACE1
+//SYSUT5   DD UNIT=&SPACE1
+//SYSUT6   DD UNIT=&SPACE1
+//SYSUT7   DD UNIT=&SPACE1
+//SYSUT8   DD UNIT=&SPACE1
+//SYSUT9   DD UNIT=&SPACE1
+//SYSUT10  DD UNIT=&SPACE1
+//SYSUT11  DD UNIT=&SPACE1
+//SYSUT12  DD UNIT=&SPACE1
+//SYSUT13  DD UNIT=&SPACE1
+//SYSUT14  DD UNIT=&SPACE1
+//SYSUT15  DD UNIT=&SPACE1
+//*
+//***************************
+//*                         *
+//*  LINK PCFDEMO           *
+//*                         *
+//***************************
+//LINKPCF  EXEC PGM=IEWL,REGION=3000K,COND=(4,LT)
+//SYSLMOD  DD DISP=SHR,DSN=&HLQ..SAMPLE.LOAD
+//SYSPRINT DD SYSOUT=*
+//SYSUT1   DD UNIT=&SPACE2
+//SYSLIB   DD DISP=SHR,DSN=&LINKLIB
+//OBJ      DD DISP=SHR,DSN=&HLQ..SAMPLE.OBJ
+//SYSLIN   DD *
+     INCLUDE OBJ(PCFDEMO)
+     NAME PCFDEMO(R)
+/*
+//*
+//***************************
+//*                         *
+//*  RUN PCFDEMO            *
+//*                         *
+//***************************
+//RUNPCF   EXEC PGM=PCFDEMO,COND=(4,LT)
+//STEPLIB  DD DISP=SHR,DSN=&HLQ..SAMPLE.LOAD
+//SYSOUT   DD SYSOUT=*
+//SYSUDUMP DD SYSOUT=*
+//*

@@ -15,10 +15,10 @@
 //*
 //*****************************************************************
 //    SET MACLIB='SYS1.MACLIB          '  *Z/OS MACRO LIBRARY
-//    SET SCEEMAC='CEE.SCEEMAC'           *ASSEMBLER MACRO LIBRARY
+//    SET SCEEMAC='SYS1.CEE.SCEEMAC'      *ASSEMBLER MACRO LIBRARY
 //    SET MODGEN='SYS1.MODGEN'            *ASM MODGEN LIBRARY
-//    SET LINKLIB='CEE.SCEELKED'          *LINK LIBRARY
-//    SET HLQ='TSOUSER'                   *TSO USER ID
+//    SET LINKLIB='SYS1.CEE.SCEELKED'     *LINK LIBRARY
+//    SET HLQ='RAFAELT'                   *TSO USER ID
 //    SET SPACE1='SYSALLDA,SPACE=(CYL,(1,1))' *SPACE ALLOCATION
 //*************************
 //* CLEAN UP

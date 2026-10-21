@@ -27,9 +27,9 @@
 //* CAN ALSO CHANGE THEM AS NEEDED.
 //*
 //*****************************************************************
-//    SET HLQ='IBMUSER'                       *TSO USER ID
-//    SET CMPLLIB='IGY.V6R5M0.SIGYCOMP'       *COMPILER LIBRARY
-//    SET LINKLIB='CEE.SCEELKED'              *LINK LIBRARY
+//    SET HLQ='RAFAELT'                       *TSO USER ID
+//    SET CMPLLIB='COBOL.V6R2.SIGYCOMP'       *COMPILER LIBRARY
+//    SET LINKLIB='SYS1.CEE.SCEELKED'         *LINK LIBRARY
 //    SET SPACE1='SYSALLDA,SPACE=(CYL,(1,1))' *SPACE ALLOCATION
 //    SET SPACE2='SYSALLDA,SPACE=(CYL,(1,1))' *SPACE ALLOCATION
 //*
