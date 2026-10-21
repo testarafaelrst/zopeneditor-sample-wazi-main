@@ -20,6 +20,10 @@ application:
       variables:
         - name: dependencySearchPath
           value: search:${WORKSPACE}/?path=${APP_DIR_NAME}/COPYBOOK/*.cpy
+        - name: SIGYCOMP
+          value: IGY.V6R5M0.SIGYCOMP
+        - name: SCEELKED
+          value: CEE.SCEELKED
 
     - task: PLI
       sources:
