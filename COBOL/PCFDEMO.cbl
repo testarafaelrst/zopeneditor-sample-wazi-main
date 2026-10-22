@@ -22,7 +22,7 @@
         05 WS-CURRENT-DATE  PIC X(08) VALUE SPACES.
         05 WS-STATUS        PIC X(10) VALUE 'INITIAL'.
         05 WS-MESSAGE       PIC X(40) VALUE
-           'DEMO PCF PROGRAM EXECUTION RUNNING'.
+           'DEMO PCF PROGRAM EXECUTION RUNNING - testa'.
 
        PROCEDURE DIVISION.
 
@@ -31,8 +31,8 @@
            DISPLAY '*** INICIO DA DEMO - PROGRAMA PCF-EDGE-STYLES ***'
            DISPLAY '=================================================='
       * TODO: Implementar validacao de seguranca no header
-      * FIXME: Substituir ACCEPT DATE por rotina padrao corporativa
-           ACCEPT WS-CURRENT-DATE FROM DATE
+      * NOTE: Usando FUNCTION CURRENT-DATE conforme padrao corporativo
+           MOVE FUNCTION CURRENT-DATE(1:8) TO WS-CURRENT-DATE
            DISPLAY 'DATA DE PROCESSAMENTO: ' WS-CURRENT-DATE
            DISPLAY 'STATUS ATUAL: ' WS-STATUS
            DISPLAY WS-MESSAGE
