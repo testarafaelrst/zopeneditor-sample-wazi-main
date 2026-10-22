@@ -59,7 +59,9 @@
                 "basePath": "rseapi",
                 "protocol": "https",
                 "rejectUnauthorized": false,
-                "authOrder": "token, bearer"
+                "authOrder": "token, bearer",
+                "tokenType": "jwtToken",
+                "tokenExpiration": "Thu Oct 22 2026 14:33:13 GMT-0300 (Brasilia Standard Time)"
             },
             "secure": [
                 "tokenValue"
