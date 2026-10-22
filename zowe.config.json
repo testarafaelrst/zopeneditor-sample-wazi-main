@@ -58,9 +58,12 @@
                 "port": 6800,
                 "basePath": "rseapi",
                 "protocol": "https",
-                "rejectUnauthorized": false
+                "rejectUnauthorized": false,
+                "authOrder": "token, bearer"
             },
-            "secure": []
+            "secure": [
+                "tokenValue"
+            ]
         },
         "zOpenDebug": {
             "type": "zOpenDebug",

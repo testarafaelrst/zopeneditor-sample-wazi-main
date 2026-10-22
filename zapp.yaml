@@ -142,7 +142,8 @@ profiles:
               - dbb-app.yaml
         - build:
             remoteCommandShell: >
-              $DBB_HOME/bin/dbb build user
+              export DBB_HOME=/shared/IBM/dbb JAVA_HOME=/usr/lpp/java/J21.0_64 DBB_BUILD=/u/rafaelt/dbb-build-conf;
+              /shared/IBM/dbb/bin/dbb build user
               --hlq ${dbbHlq}
               --errPrefix ${errPrefix}
               ${currentProgram}

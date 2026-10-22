@@ -9,7 +9,7 @@
       * This program is for demonstration purposes for the Program
       * Control Flow Browser.
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. PCF-EDGE-STYLES.
+       PROGRAM-ID. PCFDEMO.
 
        ENVIRONMENT DIVISION.
 
@@ -55,7 +55,7 @@
            IF WS-COUNTER > WS-MAX-COUNTER
             DISPLAY '[ALERTA] VALOR LIMITE ULTRAPASSADO'
            END-IF
-           DISPLAY '[LOGICA] PROCESS. DA REGRA DE NEGOCIO CONCLUIDO'.
+           DISPLAY '[LOGICA] PROCESS. DA REGRA DE NEGOC CONCLUIDO'.
 
        300-SHARED-PARA.
            ADD 1 TO WS-COUNTER

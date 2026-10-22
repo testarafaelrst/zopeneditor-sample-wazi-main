@@ -13,16 +13,20 @@
     "HLQ": "RAFAELT",
     "dbbHlq": "RAFAELT.SAMPLE",
     "dbbWorkspace": "/u/rafaelt/projects",
-    "dbbLogDir": "/u/rafaelt/projects/logs",
+    "dbbLogDir": "/u/rafaelt/projects/zopeneditor-sample-wazi-main/logs",
     "DBB_HOME": "/shared/IBM/dbb",
     "DBB_JAVA_HOME": "/usr/lpp/java/J21.0_64",
-    "DBB_BUILD": "/u/rafaelt/dbb-zappbuild",
+    "DBB_BUILD": "/u/rafaelt/dbb-build-conf",
     "application": "zopeneditor-sample-wazi-main"
   },
   "zopeneditor.userbuild.userSettings": {
     "dbbHlq": "RAFAELT.SAMPLE",
     "dbbWorkspace": "/u/rafaelt/projects",
-    "dbbLogDir": "/u/rafaelt/projects/logs"
+    "dbbLogDir": "/u/rafaelt/projects/zopeneditor-sample-wazi-main/logs"
+  },
+  "zopeneditor.zowe": {
+    "defaultCliProfile": "rse",
+    "defaultRseProfile": "rse"
   },
   // ZCodeScan YAML schema associations for editing rules files.
   "yaml.schemas": {
