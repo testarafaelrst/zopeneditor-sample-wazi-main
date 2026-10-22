@@ -22,7 +22,7 @@
         05 WS-CURRENT-DATE  PIC X(08) VALUE SPACES.
         05 WS-STATUS        PIC X(10) VALUE 'INITIAL'.
         05 WS-MESSAGE       PIC X(40) VALUE
-           'DEMO PCF PROGRAM EXECUTION RUNNING - testa'.
+           'DEMO PCF PROGRAM EXECUTION RUNNING'.
 
        PROCEDURE DIVISION.
 
@@ -60,9 +60,9 @@
        300-SHARED-PARA.
            ADD 1 TO WS-COUNTER
            DISPLAY '[SHARED] EXECUCAO COMPARTILHADA. CONTADOR: '
-                   WS-COUNTER.
+                   WS-COUNTER
 
-       900-FINISH-PARA.
+                   900-FINISH-PARA.
            DISPLAY '=================================================='
            DISPLAY '*** FIM DA DEMO - FINALIZANDO COM GOBACK ***'
            DISPLAY '=================================================='
