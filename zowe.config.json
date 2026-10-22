@@ -61,7 +61,7 @@
                 "rejectUnauthorized": false,
                 "authOrder": "token, bearer",
                 "tokenType": "jwtToken",
-                "tokenExpiration": "Thu Oct 22 2026 14:33:13 GMT-0300 (Brasilia Standard Time)"
+                "tokenExpiration": "Thu Oct 22 2026 15:39:15 GMT-0300 (Brasilia Standard Time)"
             },
             "secure": [
                 "tokenValue"
