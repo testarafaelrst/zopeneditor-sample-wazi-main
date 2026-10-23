@@ -372,10 +372,5 @@ profiles:
   - name: edt-pcfdemo
     type: test
     settings:
-      jclFile: JCL/RUNPCF.jcl
-      stepName: RUNPCF
-      dtestEngine: IDZEE.ZEE.SFELLOAD
       recordingDataSet: ${HLQ}.TAZ.EDT.RECORD
-      configurationDataSet: ${HLQ}.TAZ.EDT.EQACFG
-      loadLibrary: ${HLQ}.SAMPLE.LOAD
 
