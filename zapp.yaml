@@ -369,8 +369,10 @@ profiles:
   #     commandParameters: <SYSPRINT>${HLQ}.LOG.OUTPUT()</SYSPRINT>
 
   # EDT (Early Development Testing) recording profile for PCFDEMO
-  - name: edt-pcfdemo
-    type: test
-    settings:
-      recordingDataSet: ${HLQ}.TAZ.EDT.RECORD
+  # Desativado: o tipo "test" com "recordingDataSet" nao existe no esquema ZAPP
+  # (CRRZG5163E) e invalidava todo o zapp.yaml, inclusive os perfis userbuild.
+  # - name: edt-pcfdemo
+  #   type: test
+  #   settings:
+  #     recordingDataSet: ${HLQ}.TAZ.EDT.RECORD
 

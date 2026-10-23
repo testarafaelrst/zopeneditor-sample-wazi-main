@@ -171,6 +171,10 @@ In looking at the files, you will notice a new copybook called `SAM2PARM`, which
 
 The COBOL sample above shows how to use VS Code as a single-root workspace. You also find the folder called [multiroot](./multiroot) in this repository that contains a simple example for how to utilize IBM Z Open Editor with a [VS Code multi-roor workspace](https://code.visualstudio.com/docs/editor/multi-root-workspaces) setup. See the [README](./multiroot/README.md) in that folder for more details.
 
+### DEVOPSPL: DevOps pipeline simulation
+
+`COBOL/DEVOPSPL.cbl` is a standalone batch program (no file I/O) that simulates, through `DISPLAY` messages, an IBM Z DevOps pipeline: PLAN, CODE, Z CODE SCAN, BUILD, TEST (TAZ), DEPLOY and MONITOR. Each step shows its start, the IBM product, the simulated activity, its status and its completion, followed by a summary. It ends with `RETURN-CODE` 0 when all seven steps succeed, or 8 when a step fails and the pipeline is aborted. To simulate a failure, set `WS-FALHA-SIMULADA` to the step number (for example 3 for Z CODE SCAN). See the specification in `.bobz/specs/DEVOPSPL-especificacao-tecnica.md`.
+
 ## Running PL/I sample files
 
 ### Sample files
