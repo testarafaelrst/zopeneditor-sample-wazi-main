@@ -60,6 +60,7 @@ Coding standards are available in the workspace and can be applied using the cod
 |--------------|----------------------|---------------------|
 | SAM1 / SAM2 / SAM1LIB (COBOL) | README.md ("Running COBOL sample files") | Customer file update from transactions (ADD/UPDATE/DELETE); SAM1 calls SAM2 for UPDATE; SAM1LIB shows library copybook resolution |
 | DEVOPSPL (COBOL) | README.md ("DEVOPSPL: DevOps pipeline simulation"), .bobz/specs/DEVOPSPL-especificacao-tecnica.md | Simulates a 7-step IBM Z DevOps pipeline (PLAN to MONITOR) via DISPLAY; RC 0 on success, 8 on simulated gate failure |
+| BANKTRX (COBOL) | README.md ("BANKTRX: Bank account transaction simulation"), .bobz/specs/BANKTRX-especificacao-tecnica.md | Simulates deposit, withdrawal and transfer on in-memory accounts via DISPLAY; RC 0 all applied, 4 business rejections, 8 size-error |
 | PSAM1 / PSAM2 / PSAM1LIB (PL/I) | README.md ("Running PL/I sample files") | Customer report with totals; PSAM1LIB shows include resolution |
 | ASAM1 (HLASM) | README.md ("Running HLASM sample files") | Reads a file and writes record/column output |
 | RSAM1 (REXX) | README.md ("Running REXX sample files") | Reads input data sets and writes combined output |

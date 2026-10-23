@@ -368,11 +368,28 @@ profiles:
   #     outputDataSet: ${HLQ}.PREPROC.OUTPUT()
   #     commandParameters: <SYSPRINT>${HLQ}.LOG.OUTPUT()</SYSPRINT>
 
-  # EDT (Early Development Testing) recording profile for PCFDEMO
-  # Desativado: o tipo "test" com "recordingDataSet" nao existe no esquema ZAPP
-  # (CRRZG5163E) e invalidava todo o zapp.yaml, inclusive os perfis userbuild.
-  # - name: edt-pcfdemo
-  #   type: test
-  #   settings:
-  #     recordingDataSet: ${HLQ}.TAZ.EDT.RECORD
+  # EDT (Early Development Testing) - Test profile for Batch programs
+  # Used by IBM Early Development Testing extension (IBM TAZ EDT) to record,
+  # replay and unit test BANKTRX and DEVOPSPL batch programs.
+  # The extension uses the first profile of type "test", so recording and
+  # unitTest settings must live in the same profile.
+  - name: edt-batch
+    type: test
+    settings:
+      recording:
+        applicationToCapture:
+          recordingType: Batch
+          jclSteps: JCL/RUNBANK.jcl
+          programs:
+            - BANKTRX
+            - DEVOPSPL
+        hostRecordingSettings:
+          dteEngineLocation: ${HLQ}.SEQAMOD
+      unitTest:
+        procLib:
+          - SYS1.PROCLIB
+        userLibraries:
+          - ${HLQ}.SAMPLE.LOAD
+        defaultTestCaseFolder: tests/unit
+        jobcard: "//EDTTEST  JOB ,NOTIFY=&SYSUID,MSGCLASS=H,MSGLEVEL=(1,1)"
 

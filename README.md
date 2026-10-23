@@ -175,6 +175,10 @@ The COBOL sample above shows how to use VS Code as a single-root workspace. You 
 
 `COBOL/DEVOPSPL.cbl` is a standalone batch program (no file I/O) that simulates, through `DISPLAY` messages, an IBM Z DevOps pipeline: PLAN, CODE, Z CODE SCAN, BUILD, TEST (TAZ), DEPLOY and MONITOR. Each step shows its start, the IBM product, the simulated activity, its status and its completion, followed by a summary. It ends with `RETURN-CODE` 0 when all seven steps succeed, or 8 when a step fails and the pipeline is aborted. To simulate a failure, set `WS-FALHA-SIMULADA` to the step number (for example 3 for Z CODE SCAN). See the specification in `.bobz/specs/DEVOPSPL-especificacao-tecnica.md`.
 
+### BANKTRX: Bank account transaction simulation
+
+`COBOL/BANKTRX.cbl` is a standalone batch program (no file I/O) that simulates, through `DISPLAY` messages, deposit (`D`), withdrawal (`S`) and transfer (`T`) transactions on three in-memory accounts. For each of the eight built-in transactions it shows the operation type, amount, previous balance, validation, result and updated balance, followed by a summary with counters, totals and final balances. Business-rule rejections (error codes E01-E07) leave balances unchanged and end with `RETURN-CODE` 4; a size-error (E99) ends with 8; if every transaction is applied it ends with 0. Transfers are atomic: both new balances are computed before either is stored. See the specification in `.bobz/specs/BANKTRX-especificacao-tecnica.md`.
+
 ## Running PL/I sample files
 
 ### Sample files
