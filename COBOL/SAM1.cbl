@@ -38,18 +38,25 @@
        FILE-CONTROL.
 
            SELECT CUSTOMER-FILE ASSIGN TO CUSTFILE
+               RESERVE 5 AREAS
                ACCESS IS SEQUENTIAL
                FILE STATUS  IS  WS-CUSTFILE-STATUS.
 
            SELECT CUSTOMER-FILE-OUT ASSIGN TO CUSTOUT
+               RESERVE 5 AREAS
                ACCESS IS SEQUENTIAL
                FILE STATUS  IS  WS-CUSTOUT-STATUS.
 
             SELECT TRANSACTION-FILE ASSIGN TO TRANFILE
+                   RESERVE 5 AREAS
                    FILE STATUS  IS  WS-TRANFILE-STATUS.
 
             SELECT REPORT-FILE      ASSIGN TO CUSTRPT
+                   RESERVE 5 AREAS
                    FILE STATUS  IS  WS-REPORT-STATUS.
+
+        I-O-CONTROL.
+            APPLY WRITE-ONLY ON CUSTOMER-FILE-OUT.
 
       *****************************************************************
        DATA DIVISION.
@@ -57,6 +64,7 @@
 
        FD  CUSTOMER-FILE
            RECORDING MODE IS V
+           BLOCK CONTAINS 0 RECORDS
            RECORD IS VARYING FROM 69 TO 387 CHARACTERS.
        COPY CUSTCOPY REPLACING ==:TAG:== BY ==CUST==.
 
@@ -67,11 +75,13 @@
        COPY CUSTCOPY REPLACING ==:TAG:== BY ==CSTOUT==.
 
        FD  TRANSACTION-FILE
-           RECORDING MODE IS F.
+           RECORDING MODE IS F
+           BLOCK CONTAINS 0 RECORDS.
        COPY TRANREC.
 
        FD  REPORT-FILE
-           RECORDING MODE IS F.
+           RECORDING MODE IS F
+           BLOCK CONTAINS 0 RECORDS.
        01 REPORT-RECORD          PIC X(132).
 
       *****************************************************************
@@ -119,13 +129,11 @@
         05 INCR-CUST-ID          PIC 9(5) VALUE 0.
         05 START-CUST-ID         PIC 9(5) VALUE 0.
         05 MAX-CUST-ID           PIC 9(5) VALUE 0.
-        05 SAM2                  PIC X(8) VALUE 'SAM2'.
       *
       * some additional comments
       * some more additional comments
       *
        01 WORK-VARIABLES.
-        05 I                     PIC S9(9) COMP-3 VALUE +0.
         05 WORK-NUM              PIC S9(8) COMP.
 
        COPY CUSTCOPY REPLACING ==:TAG:== BY ==WS-CUST==.
@@ -301,10 +309,10 @@
       *
       *        Subroutine SAM2 will apply an update to a customer record
       *
-            CALL SAM2 USING CUST-REC,
-                            TRANSACTION-RECORD,
-                            WS-TRAN-OK,
-                            WS-TRAN-MSG
+            CALL 'SAM2' USING CUST-REC,
+                              TRANSACTION-RECORD,
+                              WS-TRAN-OK,
+                              WS-TRAN-MSG
             END-CALL
             IF WS-TRAN-OK NOT = 'Y'
              MOVE WS-TRAN-MSG TO ERR-MSG-DATA1
@@ -323,14 +331,8 @@
             MOVE TRAN-KEY TO ERR-MSG-DATA2
             PERFORM 299-REPORT-BAD-TRAN
            ELSE
-            MOVE SPACES TO WS-CUST-REC
+            INITIALIZE WS-CUST-REC
             MOVE TRAN-KEY TO WS-CUST-KEY
-            MOVE +0 TO WS-CUST-ACCT-BALANCE
-            MOVE +0 TO WS-CUST-ORDERS-YTD
-            PERFORM TEST AFTER VARYING I FROM 1 BY 1
-               UNTIL I > 12
-             MOVE +0 TO WS-CUST-MONTH(I)
-            END-PERFORM
             PERFORM 740-WRITE-CUSTOUT-FILE
             ADD +1 TO NUM-ADD-PROCESSED
            END-IF.
@@ -420,8 +422,7 @@
            END-IF.
 
        721-COPY-RECORDS.
-           MOVE CUST-REC TO WS-CUST-REC.
-           PERFORM 740-WRITE-CUSTOUT-FILE.
+           PERFORM 741-WRITE-CUSTOUT-PASSTHRU.
            PERFORM 730-READ-CUSTOMER-FILE.
 
        730-READ-CUSTOMER-FILE.
@@ -449,13 +450,24 @@
             MOVE WS-CUST-REC TO WS-CUST-CONTACT-REC
             WRITE CSTOUT-CONTACT-REC FROM WS-CUST-CONTACT-REC
            END-IF.
+           PERFORM 745-CHECK-CUSTOUT-STATUS.
+
+       741-WRITE-CUSTOUT-PASSTHRU.
+           IF CUST-REC-TYPE = 'A'
+            WRITE CSTOUT-REC FROM CUST-REC
+           ELSE
+            WRITE CSTOUT-CONTACT-REC FROM CUST-CONTACT-REC
+           END-IF.
+           PERFORM 745-CHECK-CUSTOUT-STATUS.
+
+       745-CHECK-CUSTOUT-STATUS.
            EVALUATE WS-CUSTOUT-STATUS
            WHEN '00'
             CONTINUE
            WHEN OTHER
-            MOVE 'CUSTOMER OUTPUT FILE I/O ERROR ON WRITE. RC: '
+            MOVE 'CUSTOUT I/O ERROR ON WRITE. RC: '
                TO ERR-MSG-DATA1
-            MOVE WS-CUSTFILE-STATUS TO ERR-MSG-DATA2
+            MOVE WS-CUSTOUT-STATUS TO ERR-MSG-DATA2
             PERFORM 299-REPORT-BAD-TRAN
            END-EVALUATE.
 

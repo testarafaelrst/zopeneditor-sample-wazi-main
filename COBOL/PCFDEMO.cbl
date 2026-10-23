@@ -60,9 +60,9 @@
        300-SHARED-PARA.
            ADD 1 TO WS-COUNTER
            DISPLAY '[SHARED] EXECUCAO COMPARTILHADA. CONTADOR: '
-                   WS-COUNTER
+                   WS-COUNTER.
 
-                   900-FINISH-PARA.
+       900-FINISH-PARA.
            DISPLAY '=================================================='
            DISPLAY '*** FIM DA DEMO - FINALIZANDO COM GOBACK ***'
            DISPLAY '=================================================='

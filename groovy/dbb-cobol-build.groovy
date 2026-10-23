@@ -90,6 +90,7 @@ def loadOptions = "cyl space(100,10) dsorg(PO) recfm(U) blksize(32720) dsntype(l
 def linkCards = [:]
 linkCards["SAM1"] = """
      INCLUDE OBJ(SAM1)
+     INCLUDE OBJ(SAM2)
      ENTRY SAM1
      NAME SAM1(R)
 """

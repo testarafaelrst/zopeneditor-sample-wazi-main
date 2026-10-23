@@ -24,6 +24,7 @@ compilerDS = args.length > 2 ? args[2] : "IGY630.SIGYCOMP"
 linklib    = "CEE.SCEELKED"
 sam1link   = """
      INCLUDE OBJ(SAM1)
+     INCLUDE OBJ(SAM2)
      ENTRY SAM1
      NAME SAM1(R)
 """
